@@ -26,7 +26,6 @@
       overflow-x: hidden;
     }
 
-    /* ── canvas de partículas ── */
     #canvas {
       position: fixed;
       inset: 0;
@@ -34,13 +33,11 @@
       z-index: 0;
     }
 
-    /* ── wrapper geral ── */
     main {
       position: relative;
       z-index: 1;
     }
 
-    /* ══════════════ HERO ══════════════ */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -112,7 +109,6 @@
       animation: grow 2s infinite;
     }
 
-    /* ══════════════ CONTADOR ══════════════ */
     .counter-section {
       padding: 5rem 2rem;
       display: flex;
@@ -131,9 +127,10 @@
     }
 
     .counter-grid {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+      width: 100%;
       justify-content: center;
     }
 
@@ -168,7 +165,6 @@
       margin-top: .4rem;
     }
 
-    /* ══════════════ CARTA ══════════════ */
     .letter-section {
       padding: 5rem 2rem;
       display: flex;
@@ -221,7 +217,6 @@
       text-align: right;
     }
 
-    /* ══════════════ MOTIVOS ══════════════ */
     .reasons-section {
       padding: 5rem 2rem;
       display: flex;
@@ -278,7 +273,6 @@
       line-height: 1.6;
     }
 
-    /* ══════════════ TIMELINE ══════════════ */
     .timeline-section {
       padding: 5rem 2rem;
       display: flex;
@@ -367,7 +361,6 @@
       line-height: 1.6;
     }
 
-    /* ══════════════ FINAL ══════════════ */
     .final-section {
       min-height: 60vh;
       display: flex;
@@ -402,7 +395,6 @@
       line-height: 1.8;
     }
 
-    /* ══════════════ ANIMAÇÕES ══════════════ */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -426,7 +418,122 @@
       56%       { transform: scale(1); }
     }
 
-    /* ══════════════ RESPONSIVO ══════════════ */
+    /* ══════════════ DISTÂNCIA ══════════════ */
+    .distance-section {
+      padding: 5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .distance-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      color: var(--cream);
+      text-align: center;
+    }
+
+    .distance-wrapper {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    .city-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255,245,247,.06);
+      border: 1px solid rgba(232,85,122,.2);
+      border-radius: 1rem;
+      padding: 1.1rem 1.4rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .city-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .city-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--cream);
+    }
+
+    .city-sub {
+      font-size: .8rem;
+      color: rgba(255,245,247,.5);
+      margin-top: 2px;
+    }
+
+    .connector-line {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      padding: .5rem 1.4rem;
+    }
+
+    .connector-line .dashes {
+      flex: 1;
+      height: 1px;
+      background: repeating-linear-gradient(90deg, var(--rose) 0px, var(--rose) 6px, transparent 6px, transparent 14px);
+      opacity: .5;
+    }
+
+    .connector-badge {
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--rose);
+      background: rgba(232,85,122,.12);
+      padding: 4px 12px;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+
+    .dist-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .9rem;
+      margin-top: 2rem;
+      width: 100%;
+    }
+
+    .dist-card {
+      background: rgba(255,245,247,.05);
+      border: 1px solid rgba(232,85,122,.15);
+      border-radius: 1rem;
+      padding: 1.4rem 1rem;
+      text-align: center;
+      backdrop-filter: blur(6px);
+      transition: transform .3s, border-color .3s;
+    }
+
+    .dist-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(232,85,122,.5);
+    }
+
+    .dist-card .dval {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      color: var(--rose);
+      display: block;
+      line-height: 1.1;
+    }
+
+    .dist-card .dlbl {
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255,245,247,.45);
+      margin-top: .5rem;
+      display: block;
+    }
+
     @media (max-width: 520px) {
       .letter-card { padding: 2.5rem 1.5rem; }
       .counter-box { padding: 1.4rem 1.6rem; }
@@ -441,7 +548,7 @@
 
   <!-- ── HERO ── -->
   <section class="hero">
-    <p class="hero-badge">29 de Abril de 2024 → 29 de Abril de 2026</p>
+    <p class="hero-badge">28 de Abril de 2024 → 28 de Abril de 2026</p>
     <h1>Dois Anos<br/>de <span>Amor</span></h1>
     <p class="hero-sub">Para você, que faz cada dia valer a pena.</p>
     <div class="scroll-hint">role para baixo</div>
@@ -487,18 +594,19 @@
         de cada momento que vivemos juntos, parece que já te conheço há uma vida inteira.
       </p>
       <p>
-        Você chegou na minha vida de um jeito que eu não esperava — e fez tudo ficar mais colorido,
+        Você chegou na minha vida de um jeito que eu não esperava — e fez tudo ficar mais alegre,
         mais leve, mais cheio de sentido. Aprendi com você o que é ter alguém ao lado de verdade.
+        Me deu motivos para batalhar e crescer mais para conseguir estar ao seu lado todos os dias da minha vida.
       </p>
       <p>
-        Cada risada sua é o meu lugar favorito. Cada abraço, o melhor lar que já tive.
+        Estar ao seu lado é o meu lugar favorito. Cada abraço, o melhor lar que já tive.
         E cada dia ao seu lado me lembra por que vale a pena acordar de manhã.
       </p>
       <p>
         Hoje, nesse aniversário de dois anos, quero que você saiba: eu te escolheria de novo.
         Sempre. Em qualquer versão da vida.
       </p>
-      <p class="signature">Com todo o meu amor ❤️</p>
+      <p class="signature">Com todo o meu amor ❤️<br/>Tiago</p>
     </div>
   </section>
 
@@ -509,13 +617,13 @@
     <div class="reasons-grid">
       <div class="reason-card">
         <div class="icon">😂</div>
-        <h3>Seu jeito de rir</h3>
-        <p>Aquela gargalhada que aparece quando você menos quer rir é a coisa mais bonita do mundo.</p>
+        <h3>Seu jeitinho</h3>
+        <p>Como posso te descrever? Você é uma pessoa incrível, sempre se esforçando para melhorar. Até ficou dengosa kkkkk</p>
       </div>
       <div class="reason-card">
         <div class="icon">🌙</div>
-        <h3>As madrugadas</h3>
-        <p>Conversar com você de madrugada, sem nenhum assunto definido, sempre vale cada segundo de sono perdido.</p>
+        <h3>Cada mensagem</h3>
+        <p>Conversar com você, mesmo que por poucas frases no dia, sem nenhum assunto definido, sempre vale cada segundo. Hoje não temos muito tempo, mas cada frase, cada momento, vale tudo.</p>
       </div>
       <div class="reason-card">
         <div class="icon">💪</div>
@@ -525,7 +633,7 @@
       <div class="reason-card">
         <div class="icon">🍕</div>
         <h3>Os momentos simples</h3>
-        <p>Comer pizza na cama, assistir série repetida, ficar sem fazer nada — tudo é especial quando é com você.</p>
+        <p>Comer pizza depois, assistir um filme, comer brigadeiro, ficar sem fazer nada — tudo é especial quando é com você.</p>
       </div>
       <div class="reason-card">
         <div class="icon">🫂</div>
@@ -548,49 +656,104 @@
       <div class="tl-item">
         <div class="tl-dot">🌟</div>
         <div class="tl-content">
-          <p class="date">Abril 2024</p>
-          <h3>O começo de tudo</h3>
-          <p>O dia em que a gente decidiu dar uma chance pra essa história bonita que estava querendo acontecer.</p>
+          <p class="date">Fevereiro de 2024</p>
+          <h3>A noite que mudou tudo</h3>
+          <p>Tudo começou num barzinho, com uma cerveja e uma amiga em comum. Papo vai, papo vem — até minha prima chegar e te contar que eu não ia tomar iniciativa. Na hora de ir embora você tomou a iniciativa e me beijou. Naquela noite tudo começou.</p>
         </div>
       </div>
       <div class="tl-item">
-        <div class="tl-dot">🌊</div>
+        <div class="tl-dot">🎉</div>
         <div class="tl-content">
-          <p class="date">2024</p>
-          <h3>Descobrindo um ao outro</h3>
-          <p>Cada conversa, cada encontro, cada detalhe novo que a gente foi descobrindo e se apaixonando mais.</p>
+          <p class="date">Carnaval de 2024</p>
+          <h3>Correndo atrás de você</h3>
+          <p>No carnaval foram dias correndo atrás de você — até que no domingo tivemos nossa primeira briga. Ou melhor, a primeira vez que você brigou comigo. 😅 E logo depois veio nossa primeira despedida, mesmo brigados.</p>
         </div>
       </div>
       <div class="tl-item">
-        <div class="tl-dot">🔥</div>
+        <div class="tl-dot">🍣</div>
         <div class="tl-content">
-          <p class="date">2025</p>
-          <h3>Crescendo juntos</h3>
-          <p>Um ano cheio de desafios, crescimento e a certeza de que ao lado certo tudo fica mais fácil.</p>
+          <p class="date">Março de 2024</p>
+          <h3>O reencontro que mudou tudo</h3>
+          <p>Um mês depois voltei para um churrasco da turma — nosso primeiro reencontro. Naquela semana fomos juntos ao japonês pela primeira vez, e veio mais uma despedida. Mas depois disso não conseguia mais ficar sem falar com você. Mesmo sendo péssimo para puxar papo, me esforçava todo dia só para te falar.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">🎂</div>
+        <div class="tl-content">
+          <p class="date">20 de Abril de 2024</p>
+          <h3>Meu aniversário</h3>
+          <p>Te convidei para vir na minha casa com alguns amigos e toda a minha família. Ali já estava tudo começando — todo mundo já achava que a gente namorava. Estávamos morrendo de vergonha, mas a tia Mi já te aceitou na família. E você, guerreira, estava lá. ❤️</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">💍</div>
+        <div class="tl-content">
+          <p class="date">27 de Abril de 2024</p>
+          <h3>Você teve coragem</h3>
+          <p>O casamento do meu irmão — e você ao meu lado. Mais uma vez demonstrando sua coragem, estando comigo mesmo morrendo de vergonha. Te vi maravilhosa e só pensei em como eu tinha sorte. Ficamos até o outro dia, e foi naquela noite que nossa história realmente começou.</p>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-dot">❤️</div>
         <div class="tl-content">
-          <p class="date">Abril 2026</p>
-          <h3>Dois anos — e muito mais</h3>
-          <p>Aqui a gente está, dois anos depois, mais inteiros, mais juntos, mais apaixonados do que nunca.</p>
+          <p class="date">28 de Abril de 2024</p>
+          <h3>O dia que tudo começou</h3>
+          <p>O dia oficial. O começo de tudo. O dia em que a gente decidiu que queria essa história — e nunca mais parou.</p>
         </div>
       </div>
+      <div class="tl-item">
+        <div class="tl-dot">🌹</div>
+        <div class="tl-content">
+          <p class="date">28 de Abril de 2026</p>
+          <h3>Dois anos — e muito mais</h3>
+          <p>Não sei quantas despedidas ainda teremos, mas sei que vou fazer de tudo para sempre estar ao seu lado. Aqui a gente está, dois anos depois, lutando a cada dia para continuar nossa história.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DISTÂNCIA ── -->
+  <section class="distance-section">
+    <p class="section-label">Amor à distância</p>
+    <h2>Quilômetros que<br/>nunca nos separaram</h2>
+
+    <div class="distance-wrapper">
+      <div class="city-row">
+        <div class="city-dot" style="background:var(--rose);"></div>
+        <div>
+          <div class="city-name">São Bernardo do Campo, SP</div>
+          <div class="city-sub">Tiago</div>
+        </div>
+      </div>
+
+      <div class="connector-line">
+        <div class="dashes"></div>
+        <span class="connector-badge">desde 28/04/2024</span>
+        <div class="dashes"></div>
+      </div>
+
+      <div class="city-row">
+        <div class="city-dot" style="background:var(--rose-dk);"></div>
+        <div>
+          <div class="city-name">Ibiraci, MG</div>
+          <div class="city-sub">Gabriela</div>
+        </div>
+      </div>
+
+      <div class="dist-grid" id="dist-cards"></div>
     </div>
   </section>
 
   <!-- ── FINAL ── -->
   <section class="final-section">
     <div class="big-heart">❤️</div>
-    <h2>Feliz aniversário,<br/><em>meu amor</em></h2>
+    <h2>Feliz aniversário<br/>de namoro, <em>meu amor</em></h2>
     <p>Que venham mais dois, mais dez, mais uma vida inteira de momentos como esses.</p>
   </section>
 
 </main>
 
 <script>
-  // ── Partículas / corações flutuantes ──
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
   let W, H, particles = [];
@@ -641,8 +804,8 @@
   }
   frame();
 
-  // ── Contador regressivo / progressivo ──
-  const start = new Date('2024-04-29T00:00:00');
+  // ── Contador ──
+  const start = new Date('2024-04-28T00:00:00');
 
   function updateCounter() {
     const now  = new Date();
@@ -652,27 +815,31 @@
     const totalSecs  = Math.floor(diff / 1000);
     const totalMins  = Math.floor(totalSecs / 60);
     const totalHours = Math.floor(totalMins / 60);
-    const totalDays  = Math.floor(totalHours / 24);
 
     const secs  = totalSecs  % 60;
     const mins  = totalMins  % 60;
     const hours = totalHours % 24;
 
-    // anos e meses
-    const ny = now.getFullYear(), nm = now.getMonth(), nd = now.getDate();
-    const sy = start.getFullYear(), sm = start.getMonth();
-    let years  = ny - sy;
-    let months = nm - sm;
+    // Cálculo exato de anos, meses e dias
+    let years  = now.getFullYear() - start.getFullYear();
+    let months = now.getMonth()    - start.getMonth();
     if (months < 0) { years--; months += 12; }
 
-    // dias restantes no mês
-    const dayStart = new Date(ny, nm, nd) - new Date(ny, nm, start.getDate());
-    let days = Math.floor(dayStart / 86400000);
-    if (days < 0) { months--; if (months < 0) { years--; months += 12; } }
+    // Ancora na data equivalente (anos+meses depois do início)
+    let anchor = new Date(start.getFullYear() + years, start.getMonth() + months, start.getDate());
+    let days   = Math.floor((now - anchor) / 86400000);
+
+    // Se ficou negativo, volta um mês
+    if (days < 0) {
+      months--;
+      if (months < 0) { years--; months += 12; }
+      anchor = new Date(start.getFullYear() + years, start.getMonth() + months, start.getDate());
+      days   = Math.floor((now - anchor) / 86400000);
+    }
 
     document.getElementById('cnt-years').textContent  = years;
     document.getElementById('cnt-months').textContent = months;
-    document.getElementById('cnt-days').textContent   = totalDays - years*365 - months*30;
+    document.getElementById('cnt-days').textContent   = days;
     document.getElementById('cnt-hours').textContent  = String(hours).padStart(2,'0');
     document.getElementById('cnt-mins').textContent   = String(mins).padStart(2,'0');
     document.getElementById('cnt-secs').textContent   = String(secs).padStart(2,'0');
@@ -680,7 +847,52 @@
   updateCounter();
   setInterval(updateCounter, 1000);
 
-  // ── Scroll reveal para timeline ──
+  // ── Distância ──
+  function haversine(lat1,lon1,lat2,lon2){
+    const R=6371, r=Math.PI/180;
+    const dLat=(lat2-lat1)*r, dLon=(lon2-lon1)*r;
+    const a=Math.sin(dLat/2)**2+Math.cos(lat1*r)*Math.cos(lat2*r)*Math.sin(dLon/2)**2;
+    return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+  }
+
+  const distKm    = Math.round(haversine(-23.7018,-46.5536,-20.4657,-47.1259));
+  const distRoad  = Math.round(distKm * 1.32);
+
+  function updateDist(){
+    const now   = new Date();
+    const diff  = now - start;
+    const totalSecs  = Math.floor(diff/1000);
+    const totalMins  = Math.floor(totalSecs/60);
+    const totalHours = Math.floor(totalMins/60);
+    const totalDays  = Math.floor(totalHours/24);
+
+    let years  = now.getFullYear() - start.getFullYear();
+    let months = now.getMonth() - start.getMonth();
+    if(months<0){years--;months+=12;}
+    let anchor = new Date(start.getFullYear()+years, start.getMonth()+months, start.getDate());
+    let days   = Math.floor((now-anchor)/86400000);
+    if(days<0){months--;if(months<0){years--;months+=12;}anchor=new Date(start.getFullYear()+years,start.getMonth()+months,start.getDate());days=Math.floor((now-anchor)/86400000);}
+
+    const secs  = totalSecs % 60;
+    const mins  = totalMins % 60;
+    const hours = totalHours % 24;
+
+    const cards = [
+      { v: distKm + ' km',  l: 'linha reta' },
+      { v: '~' + distRoad + ' km', l: 'de carro' },
+      { v: '~5h 30min', l: 'tempo médio de viagem' },
+      { v: totalDays.toLocaleString('pt-BR'), l: 'dias lutando contra a distância' },
+    ];
+
+    document.getElementById('dist-cards').innerHTML = cards.map(c=>
+      `<div class="dist-card"><span class="dval">${c.v}</span><span class="dlbl">${c.l}</span></div>`
+    ).join('');
+  }
+
+  updateDist();
+  setInterval(updateDist, 1000);
+
+  // ── Scroll reveal ──
   const tlItems = document.querySelectorAll('.tl-item');
   const observer = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
