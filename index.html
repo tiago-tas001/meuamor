@@ -652,27 +652,28 @@
     const totalSecs  = Math.floor(diff / 1000);
     const totalMins  = Math.floor(totalSecs / 60);
     const totalHours = Math.floor(totalMins / 60);
-    const totalDays  = Math.floor(totalHours / 24);
 
     const secs  = totalSecs  % 60;
     const mins  = totalMins  % 60;
     const hours = totalHours % 24;
 
-    // anos e meses
     const ny = now.getFullYear(), nm = now.getMonth(), nd = now.getDate();
-    const sy = start.getFullYear(), sm = start.getMonth();
-    let years  = ny - sy;
-    let months = nm - sm;
-    if (months < 0) { years--; months += 12; }
+    let years  = ny - start.getFullYear();
+    let months = nm - start.getMonth();
+    let days   = nd - start.getDate();
 
-    // dias restantes no mês
-    const dayStart = new Date(ny, nm, nd) - new Date(ny, nm, start.getDate());
-    let days = Math.floor(dayStart / 86400000);
-    if (days < 0) { months--; if (months < 0) { years--; months += 12; } }
+    if (days < 0) {
+      months--;
+      days += new Date(ny, nm, 0).getDate(); // dias do mês anterior
+    }
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
 
     document.getElementById('cnt-years').textContent  = years;
     document.getElementById('cnt-months').textContent = months;
-    document.getElementById('cnt-days').textContent   = totalDays - years*365 - months*30;
+    document.getElementById('cnt-days').textContent   = days;
     document.getElementById('cnt-hours').textContent  = String(hours).padStart(2,'0');
     document.getElementById('cnt-mins').textContent   = String(mins).padStart(2,'0');
     document.getElementById('cnt-secs').textContent   = String(secs).padStart(2,'0');
